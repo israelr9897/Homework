@@ -8,7 +8,6 @@
 // a = a.slice(-lenA)
 // console.log(a);
 // console.log(b);
-
 //2
 // const strList = [["x","f","u"],["x","a","X"],["X","X","N"],["o","q","X"],["x","a","s"]];
 // let counter = 0;
@@ -165,14 +164,13 @@
 // console.log(Object.keys(counterDict).length);
 
 //14
-// const obj = {"a": 2, "fg":34, "bool": true, "n":"dgh"}
-// let newObj = {};
-// for (const key in obj) {
-//     if(typeof(obj[key]) === "number" || typeof(obj[key]) === "string"){
-//         newObj[obj[key]] = key;
-//     }   
-// }
+const obj = {"a": 2, "fg":34, "bool": true, "n":"dgh"}
+let newObj = {};
+for (const key in obj) {
+    if(typeof(obj[key]) === "number" || typeof(obj[key]) === "string"){
+        newObj[obj[key]] = key;
+    }   
+}
 // console.log(newObj);
 
 //15
-
