@@ -1,11 +1,21 @@
 //1
 function extractNumbers(arr){
     try{
+        if(!Array.isArray(arr)){
+            throw new Error("Isn't array");
+        }
         return arr.filter(num => typeof(num) === "number");
     }
     catch(err){
         console.log(err.message);
-        
+    }
+}
+function checkValOfArray(){
+    try{
+
+    }
+    catch{
+
     }
 }
 // console.log(extractNumbers([1,2,3,4,null]));
@@ -36,7 +46,7 @@ function filterLargeSums(arrList, minTotal){
         console.log("filterLargeSums ERR Message : " + err.message);
     }
 }
-// console.log(filterLargeSums([[1,2,3], [10,"bad",5],"bad"], 10));  
+console.log(filterLargeSums([[1,2,3], [10,"bad",5],"bad"],"fg", 10));  
 
 //4
 function summaryStats(arrList){
@@ -86,7 +96,7 @@ function safeCalculator(a, b, operation){
             }
         }
         else{
-            console.log("One of the values ​​is not a number");
+            throw new Error("One of the values ​​is not a number");
         }
     }
     catch(err){
@@ -94,7 +104,7 @@ function safeCalculator(a, b, operation){
     }
 };
 
-console.log(safeCalculator(2,5,"divide"));
+console.log(safeCalculator(2,"5","divide"));
 
 
 
