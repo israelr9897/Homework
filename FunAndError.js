@@ -20,7 +20,7 @@ function sumNumbersSafe(arr){
         }        
         return result;
     }catch(err){
-        console.log(err.message);
+        console.log("sumNumbersSafe ERR Message : " + err.message);
         return 0;
     }
 }
@@ -33,7 +33,7 @@ function filterLargeSums(arrList, minTotal){
         let newArrList = arrList.filter(arr => sumNumbersSafe(arr) >= minTotal);
         return newArrList;
     }  catch(err){
-        console.log(err.message);
+        console.log("filterLargeSums ERR Message : " + err.message);
     }
 }
 // console.log(filterLargeSums([[1,2,3], [10,"bad",5],"bad"], 10));  
@@ -50,7 +50,7 @@ function summaryStats(arrList){
 
     }
     catch(err){
-        console.log(err.message);
+        console.log("summaryStats ERR Message : " + err.message);
     }
 }
 const arrlist = summaryStats([[1,2,3], [5,5,5], [100], "bad"]);
@@ -90,7 +90,7 @@ function safeCalculator(a, b, operation){
         }
     }
     catch(err){
-        console.log(err.message);
+        console.log("safeCalculator ERR Message : " + err.message);
     }
 };
 
