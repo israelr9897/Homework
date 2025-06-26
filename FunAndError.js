@@ -10,14 +10,6 @@ function extractNumbers(arr){
         console.log(err.message);
     }
 }
-function checkValOfArray(){
-    try{
-
-    }
-    catch{
-
-    }
-}
 // console.log(extractNumbers([1,2,3,4,null]));
 
 //2
