@@ -1,7 +1,15 @@
-📚 JS Async Exercises (Callback Style, Node.js Built-ins)
-
-✨ Exercise 1: File Reader with Stats
 Goal:
-Read a text file content.
-After that, print its size and creation date.
-Handle all operations using callbacks.
+ Delete temp.txt but only if the file exists.
+Required Modules:
+ ✅ fs
+Expected Output Example:
+File deleted.
+
+Or if file doesn't exist:
+File not found.
+
+
+Mon Jun 30 2025 16:10:45 GMT+0300 (Israel Daylight Time) - Log entry
+Mon Jun 30 2025 16:11:26 GMT+0300 (Israel Daylight Time) - Log entry
+Mon Jun 30 2025 16:11:58 GMT+0300 (Israel Daylight Time) - Log entry
+Mon Jun 30 2025 16:12:05 GMT+0300 (Israel Daylight Time) - Log entry
