@@ -135,3 +135,16 @@ import path from "path";
 //         });
 //     });
 // });
+
+//12
+// if(fs.existsSync("../notes.txt")){
+//     console.log("notes.txt is a .txt file.");
+// }
+// else{
+//     console.log("File not found.");
+// }
+
+//13
+// console.log(`System uptime: ${os.uptime()} seconds`);
+
+
