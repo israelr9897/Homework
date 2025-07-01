@@ -7,9 +7,9 @@ function createUser(path, nameUser) {
       console.log("error massege: " + err);
       return;
     }
-    let newdata = JSON.parse(data);
+    let users = JSON.parse(data);
     let IsExists = false;
-    newdata.forEach((obj) => {
+    users.forEach((obj) => {
       if (obj.userName === nameUser) {
         IsExists = true;
         console.log("Such a user exists.");
@@ -17,8 +17,8 @@ function createUser(path, nameUser) {
       }
     });
     if (!IsExists) {
-      newdata.push({ userName: nameUser });
-      fs.writeFile(path, JSON.stringify(newdata), (err) => {
+      users.push({ userName: nameUser });
+      fs.writeFile(path, JSON.stringify(users), (err) => {
         if (err) {
           console.log("error " + err);
         }
@@ -34,8 +34,11 @@ function readerUsers(path) {
       console.log("error massege: " + err);
       return;
     }
-    let newdata = JSON.parse(data);
-    console.log(newdata);
+    let users = JSON.parse(data);
+    console.log("Users: ");
+    users.forEach((user) => {
+      console.log("- " + user.userName);
+    });
   });
 }
 
@@ -45,9 +48,9 @@ function userUpdate(path, nameUser, newNameUser) {
       console.log("error massege: " + err);
       return;
     }
-    let newdata = JSON.parse(data);
+    let users = JSON.parse(data);
     let isFind = true;
-    newdata.forEach((obj) => {
+    users.forEach((obj) => {
       if (obj.userName === nameUser) {
         isFind = false;
         obj.userName = newNameUser;
@@ -55,7 +58,7 @@ function userUpdate(path, nameUser, newNameUser) {
       }
     });
     if (!isFind) {
-      fs.writeFile(path, JSON.stringify(newdata), (err) => {
+      fs.writeFile(path, JSON.stringify(users), (err) => {
         if (err) {
           console.log("error " + err);
         }
@@ -73,17 +76,17 @@ function deletedUser(path, nameUser) {
       console.log("error massege: " + err);
       return;
     }
-    let newdata = JSON.parse(data);
+    let users = JSON.parse(data);
     let isFind = true;
-    newdata.forEach((obj, idx) => {
+    users.forEach((obj, idx) => {
       if (obj.userName === nameUser) {
         isFind = false;
-        newdata.splice(idx, 1);
+        users.splice(idx, 1);
         return;
       }
     });
     if (!isFind) {
-      fs.writeFile(path, JSON.stringify(newdata), (err) => {
+      fs.writeFile(path, JSON.stringify(users), (err) => {
         if (err) {
           console.log("error " + err);
         }
@@ -132,6 +135,5 @@ function menu() {
       break;
   }
 }
-
 
 menu();
