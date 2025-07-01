@@ -46,10 +46,10 @@ function userUpdate(path, nameUser, newNameUser) {
       return;
     }
     let newdata = JSON.parse(data);
-    let isFind = false;
+    let isFind = true;
     newdata.forEach((obj) => {
       if (obj.userName === nameUser) {
-        isFind = true;
+        isFind = false;
         obj.userName = newNameUser;
         return;
       }
@@ -74,10 +74,10 @@ function deletedUser(path, nameUser) {
       return;
     }
     let newdata = JSON.parse(data);
-    let isFind = false;
+    let isFind = true;
     newdata.forEach((obj, idx) => {
       if (obj.userName === nameUser) {
-        isFind = true;
+        isFind = false;
         newdata.splice(idx, 1);
         return;
       }
