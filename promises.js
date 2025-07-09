@@ -2,6 +2,7 @@ import { randomInt } from "crypto";
 import { promises } from "dns";
 import fs from "fs";
 
+
 // //1
 // function delayedGreet(name, delay) {
 //   return new Promise((resolve, reject) => {
@@ -73,7 +74,8 @@ import fs from "fs";
 //5
 // function fetchData(url) {
 //   return new Promise((res, rej) => {
-//     fetch(url).then((x) => res(x.json()));
+//     fetch(url)
+//     .then((x) => res(x.json()));
 //   });
 // }
 // fetchData("https://jsonplaceholder.typicode.com/todos/1").then((data) => {
@@ -118,3 +120,70 @@ import fs from "fs";
 // }).catch(data => {
 //     console.log("File exists: " + data);
 // })
+
+// //8.1
+// function chainedGreetings() {
+//   return new Promise((res) => {
+//     setTimeout(() => {
+//       res();
+//     }, 1000);
+//   });
+// }
+// chainedGreetings()
+//   .then(() => {
+//     console.log("Hii");
+//     return new Promise((res) => {
+//       setTimeout(() => {
+//         res();
+//       }, 2000);
+//     });
+//   })
+//   .then(() => {
+//     console.log("Hou are you?");
+//     return new Promise((res) => {
+//       setTimeout(() => {
+//         res();
+//       }, 1000);
+//     });
+//   })
+//   .then(() => {
+//     console.log("good by");
+//   });
+
+// //8.2
+// function chainedGreetings(massege, daily) {
+//   return new Promise((res) => {
+//     setTimeout(() => {
+//       res();
+//       console.log(massege);
+//     }, daily);
+//   });
+// }
+// chainedGreetings("Hii", 1000)
+// .then(() => chainedGreetings("Hou are you?", 2000)
+// .then(() => chainedGreetings("good by", 1000).then(() => {})));
+
+//9
+function processFile(inputPath, outputPath){
+    return new Promise((res, rej) => {
+        fs.readFile(inputPath,"utf-8", (err, data) => {
+            if(err){
+                rej(err);
+                return;
+            }
+            res(data, outputPath);
+        })
+    })
+}
+processFile("text.txt", "out.txt")
+.then(data => {
+    return new Promise((res, rej) => {
+        fs.writeFile("out.txt", "Word count: " + data.length ,(err) => {
+            if(err){
+                rej(err)
+                return;
+            }
+            res()
+        })
+    })
+}).then(()=>{})
